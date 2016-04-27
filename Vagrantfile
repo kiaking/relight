@@ -2,7 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Configure the box.
-  config.vm.box = "gbarbieru/xenial"
+  config.vm.box = "bento/ubuntu-14.04"
   config.vm.hostname = "relight"
 
   # Don't replace the default key https://github.com/mitchellh/vagrant/pull/4707
