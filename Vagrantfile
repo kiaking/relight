@@ -19,4 +19,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8000
 
   config.vm.synced_folder "./", "/vagrant", disabled: true
+
+  # Run the base provisioning script.
+  config.vm.provision "shell", path: "./scripts/update.sh"
+  config.vm.provision :reload
 end
