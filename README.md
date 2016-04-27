@@ -4,6 +4,14 @@ Relight is the scripts that build the [Vagrant](https://www.vagrantup.com) box f
 
 You can download the Vagrant box at https://atlas.hashicorp.com/kiaking/boxes/relight.
 
+## Included Software
+
+- Ubuntu 14.04
+- Erlang
+- Elixir
+- Phoenix
+- Node (With Gulp)
+
 ## Getting Started
 
 To build Relight Vagrant box, first you need to install `vagrant-reload` plugin.

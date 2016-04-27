@@ -23,4 +23,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Run the base provisioning script.
   config.vm.provision "shell", path: "./scripts/update.sh"
   config.vm.provision :reload
+  config.vm.provision "shell", path: "./scripts/provision.sh"
 end
