@@ -10,25 +10,19 @@ You can download the Vagrant box at https://atlas.hashicorp.com/kiaking/boxes/re
 - Erlang
 - Elixir
 - Phoenix
+- MySQL
+- PostgreSQL
 - Node (With Gulp)
 
 ## Getting Started
 
-To build Relight Vagrant box, first you need to install `vagrant-reload` plugin.
+To build Relight Vagrant box, just execute `build.sh` scripts.
 
 ```shell
-$ vagrant plugin install vagrant-reload
+$ sh build.sh
 ```
 
-Then boot up and provision Vagrant and create package.
-
-```shell
-$ vagrant up
-$ vagrant halt
-$ vagrant package --base relight-base
-```
-
-After executing above command, the `package.box` file will be created at root of the project folder.
+After executing the script, the `virtualbox.box` file will be created at root of the project folder.
 
 ## License
 
