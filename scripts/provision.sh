@@ -13,7 +13,7 @@ sh -c 'echo "deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7" >> /etc/apt
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
 
-curl --silent --location https://deb.nodesource.com/setup_5.x | bash -
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 # Add Erlang Solutions repo.
 
@@ -92,7 +92,7 @@ service postgresql restart
 # Install Node.
 
 apt-get install -y nodejs
-/usr/bin/npm install -g gulp
+/usr/bin/npm install -g gulp-cli
 
 # Enable swap memory.
 
