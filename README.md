@@ -14,7 +14,7 @@ You can download the Vagrant box at https://atlas.hashicorp.com/kiaking/boxes/re
 - PostgreSQL
 - Node (With Gulp)
 
-## Getting Started
+## To Build Vagrant Box 
 
 To build Relight Vagrant box, just execute `build.sh` scripts.
 
