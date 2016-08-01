@@ -7,12 +7,12 @@ You can download the Vagrant box at https://atlas.hashicorp.com/kiaking/boxes/re
 ## Included Software
 
 - Ubuntu 14.04
-- Erlang
-- Elixir
-- Phoenix
-- MySQL
-- PostgreSQL
-- Node (With Gulp)
+- Erlang v18.3
+- Elixir v1.3.1
+- Phoenix v1.2.0
+- MariaDB v10.1.6
+- PostgreSQL v9.5.3
+- Node v6.1.3 (With Gulp)
 
 ## To Build Vagrant Box 
 

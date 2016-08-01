@@ -6,9 +6,8 @@ export DEBIAN_FRONTEND=noninteractive
 
 apt-get install -y software-properties-common curl
 
-# gpg: key 5072E1F5: public key "MySQL Release Engineering <mysql-build@oss.oracle.com>" imported.
-apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 5072E1F5
-sh -c 'echo "deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7" >> /etc/apt/sources.list.d/mysql.list'
+apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+add-apt-repository 'deb http://ftp.yz.yamagata-u.ac.jp/pub/dbms/mariadb/repo/10.1/ubuntu trusty main'
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" >> /etc/apt/sources.list.d/postgresql.list'
@@ -48,18 +47,23 @@ apt-get install -y elixir
 
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez --force
 
-# Install MySQL.
+# Set The Automated Root Password for MariaDB.
 
-debconf-set-selections <<< "mysql-community-server mysql-community-server/data-dir select ''"
-debconf-set-selections <<< "mysql-community-server mysql-community-server/root-pass password secret"
-debconf-set-selections <<< "mysql-community-server mysql-community-server/re-root-pass password secret"
-apt-get install -y mysql-server
+debconf-set-selections <<< "mariadb-server-10.1 mysql-server/data-dir select ''"
+debconf-set-selections <<< "mariadb-server-10.1 mysql-server/root_password password secret"
+debconf-set-selections <<< "mariadb-server-10.1 mysql-server/root_password_again password secret"
 
-# Configure MySQL password lifetime
+# Install MariaDB.
+
+touch /home/vagrant/.maria
+
+apt-get install -y mariadb-server
+
+# Configure MariaDB password lifetime
 
 echo "default_password_lifetime = 0" >> /etc/mysql/my.cnf
 
-# Configure MySQL remote access.
+# Configure MariaDB remote access.
 
 sed -i '/^bind-address/s/bind-address.*=.*/bind-address = 0.0.0.0/' /etc/mysql/my.cnf
 
@@ -106,4 +110,3 @@ echo "Minimizing disk image..."
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
 sync
-
